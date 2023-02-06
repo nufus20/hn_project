@@ -70,7 +70,8 @@ class PemesananController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pemesanan = Pemesanan::find($id);
+        return view('pemesanan.edit',compact('pemesanan'));
     }
 
     /**
@@ -82,7 +83,17 @@ class PemesananController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pemesanan = Pemesanan::find($id);
+
+        $pemesanan->tgl_pemesanan =$request->tgl_pemesanan;
+        $pemesanan->biaya =$request->biaya;
+        $pemesanan->id_pembeli =$request->id_pembeli;
+        $pemesanan->jumlah=$request->jumlah;
+        $pemesanan->id_barang =$request->id_barang;
+        $pemesanan->tgl_selesai =$request->tgl_selesai;
+        $pemesanan->save();
+
+        return redirect('/pemesanan');
     }
 
     /**
@@ -93,6 +104,9 @@ class PemesananController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $pemesanan = Pemesanan::find($id);
+        $pemesanan->delete();
+
+        return redirect('/pemesanan');
     }
 }

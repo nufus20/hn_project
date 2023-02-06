@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Pembeli;
 
 class PembeliController extends Controller
 {
@@ -13,7 +14,10 @@ class PembeliController extends Controller
      */
     public function index()
     {
-        //
+        $nomor = 1;
+        $pembeli = Pembeli::all();
+        return view('pembeli.index',compact('nomor','pembeli'));
+    
     }
 
     /**
@@ -23,7 +27,7 @@ class PembeliController extends Controller
      */
     public function create()
     {
-        //
+        return view('pemebeli.form');
     }
 
     /**
@@ -34,7 +38,14 @@ class PembeliController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pembeli = new Pembeli;
+
+        $pembeli->nama =$request->nama;
+        $pembeli->hp =$request->hp;
+        $pembeli->alamat =$request->alamat;
+        $pemesanan->save();
+
+        return redirect('/pembeli');
     }
 
     /**

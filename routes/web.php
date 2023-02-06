@@ -32,4 +32,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/pemesanan', [PemesananController::class, 'index']);
     Route::get('/pemesanan/form', [PemesananController::class, 'create']);
     Route::post('/pemesanan', [PemesananController::class, 'store']);
+    Route::get('/pemesanan/edit/{id}', [PemesananController::class, 'edit']);
+    Route::put('/pemesanan/{id}', [PemesananController::class, 'update']);
+    Route::delete('/pemesanan/{id}', [PemesananController::class, 'destroy']);
+
+    Route::get('/pembeli', [PembeliController::class, 'index']);
+    Route::get('/pembeli/form', [PembeliController::class, 'create']);
+    Route::post('/pembeli', [PembeliController::class, 'store']);
+    Route::get('/pembeli/edit/{id}', [PembeliController::class, 'edit']);
+    Route::put('/pembeli/{id}', [PembeliController::class, 'update']);
+    Route::delete('/pembeli/{id}', [PembeliController::class, 'destroy']);
+
 });
