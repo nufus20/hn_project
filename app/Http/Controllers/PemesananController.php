@@ -27,7 +27,7 @@ class PemesananController extends Controller
      */
     public function create()
     {
-        //
+        return view('pemesanan.form');
     }
 
     /**
@@ -38,7 +38,12 @@ class PemesananController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pemesanan = new Pemesanan;
+
+        $pemesanan->tgl_pemesanan =$request->tgl_pemesanan;
+        $pemesanan->nim =$request->pemesanan;
+
+        return view('/pemesanan');
     }
 
     /**
