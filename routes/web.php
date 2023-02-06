@@ -14,9 +14,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layouts.master');
+})->middleware('auth');
+
+Route::get('/login', function () {
+    return view('layouts.login');
 });
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::middleware('auth')->group(function () {
+    // manajemen jurusan
+    Route::get('/jurusan', [JurusanController::class, 'index']);
+    Route::get('/jurusan/form', [JurusanController::class, 'create']);
+    Route::post('/jurusan', [JurusanController::class, 'store']);
+});
