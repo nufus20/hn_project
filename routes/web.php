@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PemesananController;
+use App\Http\Controllers\PembeliController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +29,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::middleware('auth')->group(function () {
     // manajemen jurusan
-    Route::get('/jurusan', [JurusanController::class, 'index']);
-    Route::get('/jurusan/form', [JurusanController::class, 'create']);
-    Route::post('/jurusan', [JurusanController::class, 'store']);
+    Route::get('/pemesanan', [PemesananController::class, 'index']);
+    Route::get('/pemesanan/form', [PemesananController::class, 'create']);
+    Route::post('/pemesanan', [PemesananController::class, 'store']);
 });
