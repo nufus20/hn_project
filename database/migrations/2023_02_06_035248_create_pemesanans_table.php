@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('jumlah');
             $table->string('id_barang');
             $table->date('tgl_selesai');
-
+            $table->timestamps();
         });
     }
 

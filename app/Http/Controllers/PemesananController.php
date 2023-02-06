@@ -41,9 +41,14 @@ class PemesananController extends Controller
         $pemesanan = new Pemesanan;
 
         $pemesanan->tgl_pemesanan =$request->tgl_pemesanan;
-        $pemesanan->nim =$request->pemesanan;
+        $pemesanan->biaya =$request->biaya;
+        $pemesanan->id_pembeli =$request->id_pembeli;
+        $pemesanan->jumlah=$request->jumlah;
+        $pemesanan->id_barang =$request->id_barang;
+        $pemesanan->tgl_selesai =$request->tgl_selesai;
+        $pemesanan->save();
 
-        return view('/pemesanan');
+        return redirect('/pemesanan');
     }
 
     /**

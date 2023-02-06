@@ -40,7 +40,7 @@
             @csrf
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Tanggal Pemesanan</label>
-              <input type="text" name="tgl_pemesanan" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <input type="date" name="tgl_pemesanan" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Biaya</label>
@@ -60,7 +60,7 @@
             </div>
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Tanggal Selesai</label>
-              <input type="text" name="tgl_selesai" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <input type="date" name="tgl_selesai" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
             <button type="submit" class="btn btn-primary">Tambah Data</button>
           </form>
