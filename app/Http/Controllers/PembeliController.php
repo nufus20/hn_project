@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Pembeli;
 
+
 class PembeliController extends Controller
 {
     /**
@@ -27,7 +28,7 @@ class PembeliController extends Controller
      */
     public function create()
     {
-        return view('pemebeli.form');
+        return view('pembeli.form');
     }
 
     /**
@@ -43,7 +44,7 @@ class PembeliController extends Controller
         $pembeli->nama =$request->nama;
         $pembeli->hp =$request->hp;
         $pembeli->alamat =$request->alamat;
-        $pemesanan->save();
+        $pembeli->save();
 
         return redirect('/pembeli');
     }
@@ -67,7 +68,8 @@ class PembeliController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pembeli = pembeli::find($id);
+        return view('pembeli.edit',compact('pembeli'));
     }
 
     /**
@@ -79,7 +81,14 @@ class PembeliController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pembeli = Pembeli::find($id);
+
+        $pembeli->nama =$request->nama;
+        $pembeli->hp =$request->hp;
+        $pembeli->alamat =$request->alamat;
+        $pembeli->save();
+
+        return redirect('/pembeli');
     }
 
     /**
@@ -90,6 +99,9 @@ class PembeliController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $pembeli = Pembeli::find($id);
+        $pembeli->delete();
+
+        return redirect('/pembeli');
     }
 }
