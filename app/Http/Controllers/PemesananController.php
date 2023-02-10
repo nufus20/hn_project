@@ -74,7 +74,8 @@ class PemesananController extends Controller
     public function edit($id)
     {
         $pemesanan = Pemesanan::find($id);
-        return view('pemesanan.edit',compact('pemesanan'));
+        $pembeli = Pembeli::all();
+        return view('pemesanan.edit',compact('pemesanan','pembeli'));
     }
 
     /**
