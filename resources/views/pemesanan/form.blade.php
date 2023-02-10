@@ -47,8 +47,13 @@
               <input type="text" name="biaya" class="form-control" id="exampleInputPassword1">
             </div>
             <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Id Pembeli</label>
-              <input type="text" name="id_pembeli" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <label for="exampleInputEmail1" class="form-label">Id Pembeli</label>
+              <select name="id_pembeli" class="form-control" id="">
+                <option value="">-Pilih Id pembeli-</option>
+                @foreach($pembeli as $data)
+                <option value="{{$data->id}}">{{$data->nama}} - {{$data->hp}}- {{$data->alamat}}</option>
+                @endforeach
+              </select>
             </div>
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Jumlah</label>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pemesanan;
+use App\Models\Pembeli;
 
 class PemesananController extends Controller
 {
@@ -17,6 +18,7 @@ class PemesananController extends Controller
         $nomor = 1;
         $pemesanan = Pemesanan::all();
         return view('pemesanan.index',compact('nomor','pemesanan'));
+        
     
     }
 
@@ -27,7 +29,8 @@ class PemesananController extends Controller
      */
     public function create()
     {
-        return view('pemesanan.form');
+        $pembeli = Pembeli::all();
+        return view('pemesanan.form',compact('pembeli'));
     }
 
     /**
